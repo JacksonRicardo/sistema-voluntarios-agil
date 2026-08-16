@@ -2,8 +2,6 @@
 
 Este repositório contém o código-fonte do **GestãoHub** (Sistema de Gestão de Voluntariado), desenvolvido como estudo de caso prático para o artigo técnico: *"AGILIDADE TÉCNICA EM MICROEQUIPES: O IMPACTO DE FRAMEWORKS BATTERIES-INCLUDED NA REDUÇÃO DO TIME-TO-MARKET DE MVPS"*.
 
-📄 **O artigo completo está disponível na pasta raiz deste repositório (`327_99951767297685.pdf`).**
-
 ## 🎯 Sobre o Projeto
 
 O atual cenário de desenvolvimento de software exige validação rápida de hipóteses de negócio. Para desenvolvedores autônomos (*Solo Developers*) e microequipes de TI, os rituais ágeis clássicos (Scrum, SAFe) podem gerar gargalos burocráticos. 
