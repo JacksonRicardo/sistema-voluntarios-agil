@@ -34,7 +34,7 @@ A aplicação da filosofia *Lean Software Development* na construção deste sis
 
 1. Clone este repositório:
    ```bash
-   git clone [https://github.com/JacksonRicardo/sistema-voluntarios-agil.git](https://github.com/JacksonRicardo/sistema-voluntarios-agil.git)
+   git clone https://github.com/JacksonRicardo/sistema-voluntarios-agil.git
    cd sistema-voluntarios-agil
 
 
