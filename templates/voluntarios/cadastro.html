@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-xl-10">
+        
+        <div class="text-center mb-5">
+            <h1 class="fw-bold" style="color: var(--corp-primary); letter-spacing: -1px;">Portal de Integração de Voluntários</h1>
+            <p class="text-muted fs-5">Preencha o formulário abaixo para submeter seu perfil à nossa base de talentos.</p>
+        </div>
+
+        <div class="corp-card p-4 p-md-5">
+            <div class="row">
+                <!-- Coluna de Instruções -->
+                <div class="col-lg-4 d-none d-lg-block border-end pe-4">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-info-circle text-primary me-2"></i>Diretrizes</h5>
+                    <p class="text-muted" style="font-size: 0.9rem;">
+                        Todos os dados fornecidos são criptografados e protegidos de acordo com as normas de privacidade de dados.
+                    </p>
+                    <hr>
+                    <ul class="list-unstyled text-muted" style="font-size: 0.9rem;">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Validação automática</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Resposta em até 48h</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Certificação de horas</li>
+                    </ul>
+                </div>
+
+                <!-- Coluna do Formulário -->
+                <div class="col-12 col-lg-8 ps-lg-4">
+                    <h5 class="fw-bold mb-4 border-bottom pb-2">Informações Cadastrais</h5>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        
+                        <div class="d-flex justify-content-end mt-4 pt-3 border-top">
+                            <button type="submit" class="btn btn-corp btn-lg w-100 w-md-auto">
+                                Submeter Cadastro <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

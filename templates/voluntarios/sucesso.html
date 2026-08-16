@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6 text-center">
+        <div class="corp-card p-4 p-md-5">
+            <h1 class="display-1 text-success mb-3"><i class="bi bi-check-circle"></i></h1>
+            <h2 class="fw-bold" style="color: var(--corp-primary);">Cadastro Realizado!</h2>
+            <p class="text-muted mt-3">
+                Obrigado por se juntar à nossa equipe. Seus dados foram salvos de forma segura e nossa coordenação entrará em contato em breve.
+            </p>
+            <div class="d-grid mt-4">
+                <a href="{% url 'cadastro_voluntario' %}" class="btn btn-outline-secondary btn-lg">Retornar ao Início</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

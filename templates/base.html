@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Corporativo | Gestão de Voluntários</title>
+    
+    <!-- Fonte Inter (Padrão Corporativo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* CSS Customizado - Identidade Corporativa */
+        :root {
+            --corp-primary: #0f172a;
+            --corp-secondary: #334155;
+            --corp-accent: #2563eb;
+            --corp-bg: #f8fafc;
+            --corp-border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--corp-bg);
+            color: var(--corp-secondary);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar Enterprise */
+        .navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid var(--corp-border);
+        }
+        .navbar-brand {
+            color: var(--corp-primary) !important;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .nav-link {
+            color: var(--corp-secondary) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .nav-link:hover { color: var(--corp-accent) !important; }
+
+        /* Cards e Containers */
+        .corp-card {
+            background: #ffffff;
+            border: 1px solid var(--corp-border);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Campos de Formulário Modernos */
+        .form-control, .form-select {
+            border: 1px solid var(--corp-border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--corp-accent);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+        label {
+            font-weight: 500;
+            color: var(--corp-primary);
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Botões */
+        .btn-corp {
+            background-color: var(--corp-primary);
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s;
+        }
+        .btn-corp:hover {
+            background-color: #1e293b;
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        main { flex: 1; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'cadastro_voluntario' %}">
+                <i class="bi bi-hexagon-fill text-primary"></i>
+                GestãoHub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cadastro_voluntario' %}">Cadastro de Talentos</a>
+                    </li>
+                    
+                    {% if user.is_authenticated %}
+                        <li class="nav-item ms-3">
+                            <a class="nav-link text-primary fw-bold bg-light px-3 py-2 rounded-3" href="/admin/">
+                                <i class="bi bi-speedometer2 me-1"></i> Backoffice
+                            </a>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <form method="post" action="{% url 'logout' %}" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn nav-link text-danger">Sair</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item ms-3">
+                            <a class="btn btn-outline-secondary btn-sm px-4 fw-bold rounded-pill" href="{% url 'login' %}">
+                                <i class="bi bi-lock-fill me-1"></i> Acesso Restrito
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-white border-top py-4 mt-auto">
+        <div class="container text-center text-md-start d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <span class="text-muted" style="font-size: 0.85rem;">
+                &copy; 2026 GestãoHub Solutions. Arquitetura em Monolito Modular.
+            </span>
+            <span class="text-muted" style="font-size: 0.85rem;">
+                <i class="bi bi-shield-check text-success"></i> Ambiente Seguro
+            </span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

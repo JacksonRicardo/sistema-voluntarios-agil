@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center mt-4">
+    <div class="col-12 col-md-6 col-lg-4">
+        
+        <div class="corp-card p-4 p-md-5">
+            <div class="text-center mb-4">
+                <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-fingerprint fs-1 text-primary"></i>
+                </div>
+                <h4 class="fw-bold" style="color: var(--corp-primary);">Autenticação</h4>
+                <p class="text-muted small">Acesso restrito a colaboradores autorizados.</p>
+            </div>
+            
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-corp">
+                        Autenticar Sistema
+                    </button>
+                </div>
+            </form>
+            
+            <div class="text-center mt-4 pt-3 border-top">
+                <a href="{% url 'cadastro_voluntario' %}" class="text-decoration-none text-muted small">
+                    <i class="bi bi-arrow-left me-1"></i> Retornar ao portal público
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
